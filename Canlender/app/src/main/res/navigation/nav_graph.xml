@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SecondFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.canlender.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_buildPlan"
+            app:destination="@id/buildPlan" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.canlender.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/FirstFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_SecondFragment_to_plan"
+            app:destination="@id/plan" />
+    </fragment>
+    <fragment
+        android:id="@+id/plan"
+        android:name="com.example.canlender.Plan"
+        android:label="fragment_plan"
+        tools:layout="@layout/fragment_plan" >
+        <action
+            android:id="@+id/action_plan_to_planDetail"
+            app:destination="@id/planDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/planDetail"
+        android:name="com.example.canlender.PlanDetail"
+        android:label="fragment_plan_detail"
+        tools:layout="@layout/fragment_plan_detail" />
+    <fragment
+        android:id="@+id/buildPlan"
+        android:name="com.example.canlender.BuildPlan"
+        android:label="fragment_build_plan"
+        tools:layout="@layout/fragment_build_plan" />
+</navigation>
